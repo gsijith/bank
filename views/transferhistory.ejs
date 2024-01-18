@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="styles.css">
+  <title>Transaction History</title>
+  <style>
+    body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  background-color: #3498db;
+  color: white;
+  padding: 10px;
+  text-align: center;
+}
+
+nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+nav li {
+  display: inline;
+  margin-right: 20px;
+}
+
+.content {
+  margin: 20px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+th, td {
+  border: 1px solid #ddd;
+  padding: 10px;
+  text-align: left;
+}
+
+th {
+  background-color: #3498db;
+  color: white;
+}
+
+footer {
+  background-color: #3498db;
+  color: white;
+  text-align: center;
+  padding: 10px;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+
+.search{
+  padding:10px;
+  margin-top: 3%;
+}
+  </style>
+</head>
+<body>
+  <header>
+    <a style="text-decoration: none; float: left; margin-left: 5px; margin-top: 10px; color: white; font-size:26px;" href="/mainpg">Home</a>
+    <h1>Bank of Example</h1>
+    <nav>
+      <ul>
+        <li><a href="#transaction-history">Transaction History</a></li>
+        <!-- Add more navigation items as needed -->
+      </ul>
+    </nav>
+    <div style="text-decoration: none; float: right; margin-left: 5px; margin-top: 10px; color: white; font-size:26px;" >
+       <form action="/transfer" method="post">
+      <input class="search" type="text" placeholder="Search.." name="search">
+        <button class="search" type="submit"><i class="fa fa-search"></i></button>
+        </form>
+   </div>
+  </header>
+
+  <section id="transaction-history" class="content">
+    <h2>Transaction History</h2>
+    <% if(userpayments.length>0){ %>
+    
+    <table>
+      <thead>
+        <tr>
+            <th>Transaction_ID</th>
+          <th>Date</th>
+          <th>Description</th>
+          <th>credit</th>
+          <th>debit</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Transaction history entries go here -->
+        <% userpayments.forEach(payment=>{ %>
+        <tr>
+            <td><%= payment.Transaction_ID %></td>
+          <td><%= payment.Date %></td>
+          <td><%= payment.Description %></td>
+          <td><%= payment.reci_amount %></td>
+          <td><%= payment.payee_amount %></td>
+        </tr>
+        <% }); %>
+        <!-- Add more transactions as needed -->
+      </tbody>
+    </table>
+    <% }  else { %>
+      <p>NO payment found !!</p>
+      <% } %>
+  </section>
+
+  <footer>
+    <p>&copy; 2024 Bank of Example. All rights reserved.</p>
+  </footer>
+</body>
+</html>

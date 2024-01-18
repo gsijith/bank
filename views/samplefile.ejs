@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bank Dashboard</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        html,body{
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            width: 100%;
+            height: 100%;
+        }
+
+        .top-nav{
+            height: 50px;
+            width: 100%;
+            background-color:slateblue;
+        }
+
+        .nav-right{
+            float: right;
+            font-size: larger;
+            margin-top: 3px;
+            color: aliceblue;
+            margin-right: 60px;
+        }
+        .nav{
+            text-decoration: none;
+            float: left;
+            margin: 10px 0px 0px 60px;
+            font-size: larger;
+            color:aliceblue;
+        }
+        #ad{
+            height: 30px;
+            width: 36px;
+            margin-left: 15px;
+        }
+        .left-dash{
+            text-decoration: none;
+            background-color: lightblue;
+            float: left;
+            margin-top: 2px;
+            border: 4px solid black;
+            height: 700px;
+            width: 350px;
+        }
+        button:hover{
+           background-color:darkslategray; 
+           color: white;
+        }
+        .btn-content{
+            padding: 20px;
+            margin-left: 40px;
+            border-radius: 40px;
+            width:260px;
+            margin-top: 45px;
+            font-size: medium;
+            font-weight: 700;
+            display:block;
+        }
+        .right-section
+        {
+            margin-top: 3px;
+            border: 3px solid black;
+            width: 1500px;
+            height: 699px;
+            margin-left: 360px;
+        }
+        .right-section h1{
+            margin-top: 30px;
+            margin-left: 44px;
+        }
+        #same{
+            font-size: larger;
+            font-weight: bold;
+            margin-left: 45px;
+        }
+        #sbi-logo
+        {
+            margin-top: -450px;
+            margin-right: 15%;
+            float: right;
+            width: 550px;
+            height: 300px;
+        }
+        .names{
+            margin-top: 5%;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="top-nav">
+            <a href="#home" class="nav">State Bank Of India</a>
+            <span class="nav-right">Hi , <%= user.fname  %> <img id="ad" src="https://www.pngmart.com/files/21/Admin-Profile-PNG-Clipart.png" alt=""></span>
+            
+        </div>
+        <div class="left-dash">
+            <a href="/mainpg" style="text-decoration: none;"><button class="btn-content" type="button">PROFILE</button><br></a>
+            <a href="/transfer" style="text-decoration: none;"> <button class="btn-content" type="button">TRANSFER HISTORY</button><br></a>
+            <a href="/payment" style="text-decoration: none;"><button class="btn-content" type="button">PAYMENT</button><br>
+         <a href="/logout" style="text-decoration: none;"><button class="btn-content" type="button">LOG OUT</button></a>
+        </div>
+        <div class="right-section">
+            <div class="names">
+            <label id="same">Name :<%= user.fname +" "+user.lname %> </label><br><br><br>
+            <label id="same">Address :<%= user.address %> </label><br><br><br>
+            <label id="same">Date Of Birth : <%= user.dob %> </label><br><br><br>
+            <label id="same">Account Number : <%= user.Acc_no %>  </label><br><br><br>
+            <label id="same">Account Type : <%= user.account%> </label><br><br><br>
+            <label id="same">IFSC Code : <%= user.ifsc_no %> </label><br><br><br>
+            <label id="same">Branch : <%= user.branch %> </label><br><br><br>
+            <label id="same">Email : <%= user.email %> </label><br><br><br>
+            <label id="same">Phone Number : <%= user.phone %> </label>
+            </div>
+            <img id="sbi-logo" src="https://1000logos.net/wp-content/uploads/2018/03/SBI-Logo.png">
+        </div>
+    </div>
+</body>
+</html>

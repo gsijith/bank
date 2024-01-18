@@ -1,0 +1,156 @@
+<html>
+<head>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style type="text/css">
+body
+{
+font-family: 'Poppins',sans-serif;
+background:black;
+}
+h1{
+  text-align:center;
+  color:white;
+}
+#acc
+{
+color:blue;
+}
+#tb
+{
+position:absolute;
+justify-content: center;
+}
+input
+{
+display:block;
+height: 50px;
+width: 100%;
+background-color: rgba(255,255,255,.07);
+border: none;
+padding:0 10px;
+margin-top: 14px;
+font-size: 14px;
+font-weight: 300;
+color:white;
+}
+::placeholder{
+  color: grey;
+}
+input:focus
+{
+outline:none;
+}
+#submit1
+{
+border-radius:5px;
+padding:15px 0;
+font-size: 18px;
+font-weight: bolder;
+margin-top: 30px;
+margin-bottom:4%;
+width:100%;
+color:black;
+cursor:pointer;
+background-color: #ffffff;
+}
+  a
+  {
+  margin-top:0%;
+  margin-bottom:2%;
+  }
+  .word
+  {
+    color:white;
+  font-size:17px;
+  }
+#lg
+{
+  margin-bottom:2%;
+  padding-bottom:2%;
+}
+#container{
+  display:flex;
+}
+.background{
+  width:430px;
+  height:520px;
+  position:absolute;
+  transform:translate(-50%,-50%);
+  left:50%;
+  top:50%;
+}
+.background .shape{
+  height: 200px;
+  width: 200px;
+  position: absolute;
+  border-radius: 50%;
+}
+.shape:first-child{
+  background: linear-gradient(
+    #1845ad,
+    #23a2f6
+  );
+  left:-160px;
+  top:-120px;
+}
+.shape:last-child{
+  background: linear-gradient(
+    to right,
+    #ff512f,
+    #f09819
+  );
+  right:-80px;
+  bottom:-125px;
+}
+form *{
+  letter-spacing: .7px;
+}
+form{
+  height:480px;
+  width: 400px;
+  background-color: rgba(255, 255, 255, 0.13);
+  position: absolute;
+  transform: translate(120%,20%);
+  top:50%;
+  left:50%;
+  border-radius: 2%;
+  backdrop-filter: blur(0px);
+  border:2px solid rgba(255,255,255,.1);
+  box-shadow:0 0 40px rgba(8,7,16,.6);
+  padding:50px 35px 35px;
+}
+
+</style>
+</head>
+<body>
+  <div class="background">
+    <div class="shape"></div>
+    <div class="shape"></div>
+  </div>
+
+<div id="tb">
+
+<form action="/login" method="post" id="log">
+
+  <h1><span id="top"></span> LOGIN</h1>
+
+<label class="word">Username</label>
+<input type="text" placeholder="username" name="username" required id="user" ><br>
+
+<label class="word">Password</label>
+<input type="password" placeholder="password" name="password" required id="pass1" ><br>
+
+<div id="container">
+
+<input type="submit" id="submit1" value="LOGIN">
+
+
+</div>
+<span class="word">Dont have an account?<a id="acc" href="/register"> create your account</a></span><br>
+
+
+</form>
+</div>
+
+</body>
+</html>

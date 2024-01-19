@@ -154,7 +154,15 @@ app.post('/transfer', (req, res) => {
 app.get('/payment', (req, res) => {
     const data=req.session.users;
     if(data){
-        res.render('payment',{user:req.session.users});
+        
+        const uacc=data.Acc_no;
+        const query='SELECT * FROM history WHERE payee=? OR recipient=?';
+
+        conn.query(query,[uacc,uacc],(err,results)=>{
+            
+            const userpayments=results;
+            res.render('payment',{userpayments});
+        })
     }
     else{
         res.redirect('/login');
@@ -172,8 +180,14 @@ app.post('/payment',(req,res)=>{
 
     const date= new Date();
 
-    const { amount,acc,desc } = req.body;
+    const { amount,acc,desc,balance } = req.body;
+    
+    if(balance<amount){
+        res.send("insufficient balance");
+    }
 
+    else{
+   
     const query='SELECT * FROM users WHERE Acc_no=?';
     conn.query(query,[acc], (err, result)=>{
         if (err) {
@@ -205,12 +219,15 @@ app.post('/payment',(req,res)=>{
                 console.log('success');
             })
                 }   
+                console.log(balance);
                 res.send("Payment Success");
             })
         }
 
 });
-
+    
+    }
+    
 });
 
 

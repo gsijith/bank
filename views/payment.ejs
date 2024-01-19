@@ -74,7 +74,10 @@ footer {
   bottom: 0;
   width: 100%;
 }
-
+#bal{
+  padding-left: 75%;
+  font-size: larger;
+}
 </style>
 </head>
 <body>
@@ -83,7 +86,26 @@ footer {
     <h1>Bank of Example</h1>
     <nav>
       <ul>
-        <li><a href="#make-payment">Click to view balance</a></li>
+        <li><a id="bal">Balance : &#8377;
+
+          <% if(userpayments.length>0){ 
+             userpayments.forEach(payment=>{ 
+                balance=0;
+               for(var i=0;i<userpayments.length;i++){
+                credit=userpayments[i].reci_amount;
+                debit=userpayments[i].payee_amount;
+                amount=credit+debit;
+                balance+=amount;
+               }
+
+               }); 
+               }  else { 
+                 }
+                  %>
+
+                  <%= balance %>
+                 
+        </a></li>
         <!-- Add more navigation items as needed -->
       </ul>
     </nav>
@@ -105,7 +127,7 @@ footer {
         <option value="payment for loans">Loan payment</option>
         <!-- Add more account options as needed -->
       </select>
-
+      <input type="hidden" name="balance" value="<%= balance %>">
       <button type="submit">Submit Payment</button>
     </form>
   </section>

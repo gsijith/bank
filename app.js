@@ -181,9 +181,14 @@ app.post('/payment',(req,res)=>{
     const date= new Date();
 
     const { amount,acc,desc,balance } = req.body;
-    
+    const user_acc=data.Acc_no;
+
     if(balance<amount){
         res.send("insufficient balance");
+    }
+
+    else if(user_acc==acc){
+        res.send("cant send to own account");
     }
 
     else{
@@ -227,7 +232,7 @@ app.post('/payment',(req,res)=>{
 });
     
     }
-    
+
 });
 
 
